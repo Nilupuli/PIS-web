@@ -1,0 +1,30 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>
+      <h2>Login</h2>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+
+    <form class="form-login" #f="ngForm" (ngSubmit)="signUp(f.value)" [formGroup]="form">
+       <label for="Email">Email address</label>
+      <input formControlName="email" type="email" id="inputEmail" ngModel class="form-control" placeholder="Email address">
+      <div *ngIf="form.get('email').touched && form.get('email').invalid" class="alert alert-danger">
+        <span *ngIf="form.hasError('email', 'email')&&form.get('email').touched">
+          This email not valid.
+        </span>
+        cannot be empty
+      </div>
+      <br>
+      <label for="inputPassword">Password</label>
+      <input formControlName="password" type="password" id="inputPassword" ngModel class="form-control" placeholder="Password">
+      <div *ngIf="form.get('password').touched && form.get('password').invalid" class="alert alert-danger">
+        cannot be empty
+      </div>
+      <br>
+      <button class="btn btn-lg btn-primary btn-block mt-5" type="submit">Log In</button>
+    </form>
+  </mat-card-content>
+
+</mat-card>

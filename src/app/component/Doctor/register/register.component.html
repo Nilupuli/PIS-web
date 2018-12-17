@@ -1,0 +1,68 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>
+      <h2>Register </h2>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-subtitle>
+    <h4>Enter your details</h4>
+  </mat-card-subtitle>
+  <mat-card-content>
+
+    <form class="form-login" #f="ngForm" (ngSubmit)="signUp(f.value)" [formGroup]="form">
+      <label for="fullName">Full Name</label>
+      <input formControlName="fullName" type="text" id="inputfullName" ngModel class="form-control" placeholder="Full Name">
+      <div *ngIf="form.get('fullName').touched && form.get('fullName').invalid" class="alert alert-danger">
+        cannot be empty
+      </div>
+
+
+      <br>
+
+      <label for="knownName">Known Name</label>
+      <input formControlName="knownName" type="text" id="inputknownName" ngModel class="form-control" placeholder="Known Name">
+      <div *ngIf="form.get('knownName').touched && form.get('knownName').invalid" class="alert alert-danger">
+        cannot be empty
+      </div>
+
+      <br>
+
+      <label for="Email">Email address</label>
+      <input formControlName="email" type="email" id="inputEmail" ngModel class="form-control" placeholder="Email address">
+      <div *ngIf="form.get('email').touched && form.get('email').invalid" class="alert alert-danger">
+        <span *ngIf="form.hasError('email', 'email')&&form.get('email').touched">
+          This email not valid.
+        </span>
+        cannot be empty
+      </div>
+
+      <br>
+
+      <label for="phoneNo">Phone Number</label>
+      <input formControlName="phoneNo" type="text" id="inputphoneNo" ngModel class="form-control" placeholder="Phone Number">
+      <div *ngIf="form.get('phoneNo').touched && form.get('phoneNo').invalid" class="alert alert-danger">
+        cannot be empty
+      </div>
+
+      <br>
+
+      <label for="inputPassword">Password</label>
+      <input formControlName="password" type="password" id="inputPassword" ngModel class="form-control" placeholder="Password">
+      <div *ngIf="form.get('password').touched && form.get('password').invalid" class="alert alert-danger">
+        cannot be empty
+      </div>
+
+      <br>
+
+      <label for="repeatPassword">Re Enter Password</label>
+      <input formControlName="repeatPassword" type="password" id=" repeatPassword" ngModel class="form-control" placeholder="Re Enter Password">
+      <div *ngIf="form.get('repeatPassword').touched && form.get('repeatPassword').invalid" class="alert alert-danger">
+        cannot be empty
+      </div>
+
+      <button class="btn btn-lg btn-primary btn-block mt-5" type="submit">Sign Up</button>
+    </form>
+  </mat-card-content>
+
+</mat-card>

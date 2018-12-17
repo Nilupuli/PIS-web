@@ -1,0 +1,33 @@
+<br>
+<br>
+<nav class="navbar navbar-light bg-light">
+  <form class="form-search" #f="ngForm" (ngSubmit)="search(f.value)" [formGroup]="form">
+    <input formControlName="searchpatient" id="searchpatient" ngModel class="form-control" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+  
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</nav>
+
+  <table class="table table-borderless table-dark">
+    <tr>
+      <th class="reg">Reg_No</th>
+      <th class="pname">Patient_Name</th>
+      <th class="dob">Date_of_birth</th>
+      <th class="nic">NIC_No</th>
+      <th class="email">Email</th>
+      <th class="hadd">Home_Address</th>
+      <th class="cno">Contact_No</th>
+      <th class="pic">Picture</th>
+    </tr>
+    <tr  *ngFor = "let patient of patientDetails">
+    <td>{{patient.Reg_No}}</td>
+    <td>{{patient.Patient_Name}}</td>
+    <td>{{patient.Date_of_birth}}</td>
+    <td>{{patient.NIC_No}}</td>
+    <td>{{patient.Email}}</td>
+    <td>{{patient.Home_Address}}</td>
+    <td>{{patient.Contact_No}}</td>
+    <td><img src="{{patient.Picture}}" alt="" width="300" height="300"></td>
+  </tr>
+  </table>
+
